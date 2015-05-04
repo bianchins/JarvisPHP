@@ -12,4 +12,10 @@ class Echo_plugin {
         echo $command;
     }
     
+    function loadRules() {
+        return array(
+          'echo',
+          'echo my voice'  
+        );
+    }
 }

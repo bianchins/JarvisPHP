@@ -8,3 +8,6 @@ JarvisPHP::enablePlugin('Echo_plugin');
 //$_SESSION['active_plugin'] = 'Echo_plugin';
 
 JarvisPHP::elaborateCommand("Just echo this string");
+JarvisPHP::elaborateCommand("load echo");
+JarvisPHP::elaborateCommand("Just echo my voice");
+JarvisPHP::elaborateCommand("nothing");

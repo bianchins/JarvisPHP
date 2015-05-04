@@ -9,13 +9,19 @@
 class Echo_plugin {
         
     function answer($command) {
-        echo $command;
+        echo $command.PHP_EOL;
     }
     
     function loadRules() {
         return array(
           'echo',
           'echo my voice'  
+        );
+    }
+    
+    function loadTokens() {
+        return array(
+          'echo'  
         );
     }
 }

@@ -3,9 +3,7 @@ require 'vendor/autoload.php';
 require 'core/JarvisPHP.php';
 
 JarvisPHP::initialize();
+//Testing
+$_SESSION['active_plugin'] = 'Echo_plugin';
 
-$class = "Echo_plugin";
-
-$plugin = new $class($JarvisPHP);
-
-$plugin->answer();
+JarvisPHP::elaborateCommand("Just echo this string");

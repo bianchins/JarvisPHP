@@ -7,13 +7,9 @@
  */
 
 class Echo_plugin {
-    
-    function __construct(&$db) {
-        $this->db = $db;
-    }
-    
-    function answer() {
-        echo 'testing';
+        
+    function answer($command) {
+        echo $command;
     }
     
 }

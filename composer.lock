@@ -4,52 +4,37 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2b3911cae936c7985d9d413329f590ec",
+    "hash": "fe492727a485398b6841eb554910bed1",
     "packages": [
         {
-            "name": "nlp-tools/nlp-tools",
+            "name": "apache/log4php",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/angeloskath/php-nlp-tools.git",
-                "reference": "12be6b61858b3054914b2678bc97ea2ebab92064"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/angeloskath/php-nlp-tools/zipball/12be6b61858b3054914b2678bc97ea2ebab92064",
-                "reference": "12be6b61858b3054914b2678bc97ea2ebab92064",
-                "shasum": ""
+                "url": "https://git-wip-us.apache.org/repos/asf/logging-log4php.git",
+                "reference": "ae4116e491d46170378c39c8c861a0153a957f5b"
             },
             "require": {
-                "php": ">=5.3"
+                "php": ">=5.2.7"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
             "autoload": {
-                "psr-0": {
-                    "NlpTools\\": "src/"
-                }
+                "classmap": [
+                    "src/main/php/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "WTFPL"
+                "Apache-2.0"
             ],
-            "authors": [
-                {
-                    "name": "Angelos Katharopoulos",
-                    "email": "angelos@yourse.gr"
-                }
-            ],
-            "description": "NlpTools is a set of php 5.3+ classes for beginner to semi advanced natural language processing work.",
+            "description": "A versatile logging framework for PHP",
+            "homepage": "http://logging.apache.org/log4php/",
             "keywords": [
-                "machine learning",
-                "nlp"
+                "log",
+                "logging",
+                "php"
             ],
-            "time": "2014-01-30 22:54:02"
+            "time": "2013-06-07 17:49:39"
         },
         {
             "name": "slim/slim",
@@ -102,7 +87,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "nlp-tools/nlp-tools": 20
+        "apache/log4php": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

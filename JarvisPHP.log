@@ -1,0 +1,10 @@
+2015-05-05T10:24:49+02:00 [JarvisPHP] Answering to command: [Just echo this string]
+2015-05-05T10:24:49+02:00 [JarvisPHP] Answering to command: [load echo]
+2015-05-05T10:24:49+02:00 [JarvisPHP] Answering to command: [Just echo my voice]
+2015-05-05T10:26:23+02:00 [JarvisPHP] Answering to command: "Just echo this string"
+2015-05-05T10:26:23+02:00 [JarvisPHP] Answering to command: "load echo"
+2015-05-05T10:26:23+02:00 [JarvisPHP] Answering to command: "Just echo my voice"
+2015-05-05T10:26:36+02:00 [JarvisPHP] Answering to command: "Just echo this string"
+2015-05-05T10:26:36+02:00 [JarvisPHP] Answering to command: "load echo"
+2015-05-05T10:26:36+02:00 [JarvisPHP] Answering to command: "Just echo my voice"
+2015-05-05T10:26:36+02:00 [JarvisPHP] no plugin found for command

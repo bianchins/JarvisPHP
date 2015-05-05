@@ -1,52 +1,5 @@
 [
     {
-        "name": "nlp-tools/nlp-tools",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/angeloskath/php-nlp-tools.git",
-            "reference": "12be6b61858b3054914b2678bc97ea2ebab92064"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/angeloskath/php-nlp-tools/zipball/12be6b61858b3054914b2678bc97ea2ebab92064",
-            "reference": "12be6b61858b3054914b2678bc97ea2ebab92064",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3"
-        },
-        "time": "2014-01-30 22:54:02",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "NlpTools\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "WTFPL"
-        ],
-        "authors": [
-            {
-                "name": "Angelos Katharopoulos",
-                "email": "angelos@yourse.gr"
-            }
-        ],
-        "description": "NlpTools is a set of php 5.3+ classes for beginner to semi advanced natural language processing work.",
-        "keywords": [
-            "machine learning",
-            "nlp"
-        ]
-    },
-    {
         "name": "slim/slim",
         "version": "2.6.2",
         "version_normalized": "2.6.2.0",
@@ -92,6 +45,38 @@
             "microframework",
             "rest",
             "router"
+        ]
+    },
+    {
+        "name": "apache/log4php",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://git-wip-us.apache.org/repos/asf/logging-log4php.git",
+            "reference": "ae4116e491d46170378c39c8c861a0153a957f5b"
+        },
+        "require": {
+            "php": ">=5.2.7"
+        },
+        "time": "2013-06-07 17:49:39",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "classmap": [
+                "src/main/php/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "A versatile logging framework for PHP",
+        "homepage": "http://logging.apache.org/log4php/",
+        "keywords": [
+            "log",
+            "logging",
+            "php"
         ]
     }
 ]

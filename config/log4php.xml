@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns="http://logging.apache.org/log4php/">
+ 
+    <appender name="JarvisPHPConsoleAppender" class="LoggerAppenderConsole" />
+    
+    <appender name="JarvisPHPFileAppender" class="LoggerAppenderFile">
+        <layout class="LoggerLayoutPattern">
+            <param name="conversionPattern" value="%date [%logger] %message%newline" />
+        </layout>
+        <param name="file" value="JarvisPHP.log" />
+    </appender>
+ 
+    <logger name="JarvisPHP">
+        <appender_ref ref="JarvisPHPFileAppender" />
+    </logger>
+    
+    <root>
+        <level value="DEBUG" />
+        <appender_ref ref="JarvisPHPConsoleAppender" />
+    </root>
+</configuration>

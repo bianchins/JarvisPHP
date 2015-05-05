@@ -1,6 +1,6 @@
 {
     "require": {
         "slim/slim": "*",
-        "nlp-tools/nlp-tools": "1.0.*@dev"
+        "apache/log4php": "dev-master"
     }
 }

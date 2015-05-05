@@ -1,27 +1,33 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * A simple Echo plugin
  */
-
 class Echo_plugin {
-        
+    /**
+     * Priority of plugin
+     * @var int  
+     */
+    var $priority = 1;
+    
+    /**
+     * the behaviour of plugin
+     * @param string $command
+     */
     function answer($command) {
-        echo $command.PHP_EOL;
+        JarvisPHP::getLogger()->info('Answering to command: "'.$command.'"');
     }
     
-    function loadRules() {
-        return array(
-          'echo',
-          'echo my voice'  
-        );
+    function getPriority() {
+        return $this->priority;
     }
     
-    function loadTokens() {
-        return array(
-          'echo'  
-        );
+    /**
+     * 
+     * @param string $command
+     * @return boolean
+     */
+    function isLikely($command) {
+        return preg_match('/echo/', $command);
     }
 }

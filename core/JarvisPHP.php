@@ -17,8 +17,10 @@ class JarvisPHP {
         {
             $namespace=str_replace("\\","/",__NAMESPACE__);
             $className=str_replace("\\","/",$className);
-            $class="plugins/".(empty($namespace) ? "" : $namespace."/")."{$className}.php";
-            include_once($class);
+            $plugins="plugins/".(empty($namespace) ? "" : $namespace."/")."{$className}.php";
+            $core="core/".(empty($namespace) ? "" : $namespace."/")."{$className}.php";
+            @include_once($plugins);
+            @include_once($core);
         });
         //Configure the Logger
         Logger::configure('config/log4php.xml');
@@ -45,7 +47,7 @@ class JarvisPHP {
      */
     static function elaborateCommand($command) {
         //Verify if there is an active plugin
-        if(JarvisPHP::sessionInProgress()) {
+        if(JarvisSession::sessionInProgress()) {
             $plugin_class = JarvisSession::getActivePlugin();
             $plugin = new $plugin_class();
             $plugin->answer($command);

@@ -3,7 +3,7 @@
 /**
  * A simple Echo plugin
  */
-class Echo_plugin {
+class Echo_plugin implements JarvisPluginInterface{
     /**
      * Priority of plugin
      * @var int  

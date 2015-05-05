@@ -17,4 +17,8 @@ class JarvisSession {
     static function sessionInProgress() {
         return !empty($_SESSION['active_plugin']);
     }
+    
+    static function terminate() {
+        unset($_SESSION['active_plugin']);
+    }
 }

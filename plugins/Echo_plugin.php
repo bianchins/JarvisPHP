@@ -16,6 +16,7 @@ class Echo_plugin implements JarvisPluginInterface{
      */
     function answer($command) {
         JarvisPHP::getLogger()->info('Answering to command: "'.$command.'"');
+        JarvisSpeaker::speak($command);
     }
     
     function getPriority() {

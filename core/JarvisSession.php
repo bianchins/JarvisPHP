@@ -21,4 +21,12 @@ class JarvisSession {
     static function terminate() {
         unset($_SESSION['active_plugin']);
     }
+    
+    static function set($name, $value) {
+        $_SESSION[$name] = $value;
+    }
+    
+    static function get($name) {
+        return $_SESSION[$name];
+    }
 }

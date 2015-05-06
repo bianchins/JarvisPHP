@@ -8,14 +8,14 @@ class Echo_plugin implements JarvisPluginInterface{
      * Priority of plugin
      * @var int  
      */
-    var $priority = 1;
+    var $priority = 3;
     
     /**
      * the behaviour of plugin
      * @param string $command
      */
     function answer($command) {
-        JarvisPHP::getLogger()->info('Answering to command: "'.$command.'"');
+        JarvisPHP::getLogger()->debug('Answering to command: "'.$command.'"');
         JarvisSpeaker::speak($command);
     }
     
@@ -30,5 +30,9 @@ class Echo_plugin implements JarvisPluginInterface{
      */
     function isLikely($command) {
         return preg_match('/echo/', $command);
+    }
+    
+    function hasSession() {
+        return false;
     }
 }

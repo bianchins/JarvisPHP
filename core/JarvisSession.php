@@ -19,7 +19,7 @@ class JarvisSession {
     }
     
     static function terminate() {
-        unset($_SESSION['active_plugin']);
+        session_destroy();
     }
     
     static function set($name, $value) {

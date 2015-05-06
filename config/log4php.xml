@@ -5,17 +5,19 @@
     
     <appender name="JarvisPHPFileAppender" class="LoggerAppenderFile">
         <layout class="LoggerLayoutPattern">
-            <param name="conversionPattern" value="%date [%logger] %message%newline" />
+            <param name="conversionPattern" value="%date [%logger %level] %message%newline" />
         </layout>
         <param name="file" value="JarvisPHP.log" />
+        <param name="append" value="false" />
     </appender>
  
     <logger name="JarvisPHP">
+        <level value="DEBUG" />
         <appender_ref ref="JarvisPHPFileAppender" />
     </logger>
     
     <root>
-        <level value="DEBUG" />
+        <level value="FATAL" />
         <appender_ref ref="JarvisPHPConsoleAppender" />
     </root>
 </configuration>

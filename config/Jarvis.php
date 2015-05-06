@@ -12,3 +12,6 @@ define('_ESPEAK_LANGUAGE','it');
 
 //Amplitude (espeak -a <amplitude>)
 define('_ESPEAK_AMPLITUDE','100');
+
+//Command session timeout, in seconds
+define('_COMMAND_SESSION_TIMEOUT', 10);

@@ -53,31 +53,41 @@ class JarvisPHP {
      * @param string $command
      */
     static function elaborateCommand($command) {
-        //Verify if there is an active plugin
-        if(JarvisSession::sessionInProgress()) {
+                
+        //Verify if there is an active plugin and the command session timeout
+        if(JarvisSession::sessionInProgress() && (time() < (JarvisSession::get('last_command_timestamp')+_COMMAND_SESSION_TIMEOUT))) {
+            JarvisPHP::getLogger()->debug('Detected active session: '.JarvisSession::getActivePlugin() . ' - last command '.JarvisSession::get('last_command_timestamp').', now is '.time());
             $plugin_class = JarvisSession::getActivePlugin();
             $plugin = new $plugin_class();
             $plugin->answer($command);
         }
         else {
+            JarvisPHP::getLogger()->debug('Active session not detected or expired');
             $max_priority_found=-9999;
             $choosen_plugin = null;
             //Cycling plugins
             foreach(JarvisPHP::$active_plugins as $plugin_class) {
                $plugin = new $plugin_class();
                if($plugin->isLikely($command)) {
+                   JarvisPHP::getLogger()->debug('Maybe '.$plugin_class.', check priority');
                    if($plugin->getPriority() > $max_priority_found) {
                        $max_priority_found = $plugin->getPriority();
-                       $choosen_plugin =& $plugin;
+                       $choosen_plugin = $plugin;
                    }
                }
             }
+            JarvisPHP::getLogger()->debug('Choosen plugin: '.get_class($choosen_plugin));
             if(!is_null($choosen_plugin)) {
+                if($choosen_plugin->hasSession()) {
+                    JarvisSession::setActivePlugin(get_class($choosen_plugin));
+                }
                 $choosen_plugin->answer($command);
             } else {
-                JarvisPHP::getLogger()->warn('no plugin found for command: '.$command);
+                JarvisPHP::getLogger()->warn('No plugin found for command: '.$command);
             }
         }
+        //Update last command timestamp
+        JarvisSession::set('last_command_timestamp', time());
     }
 
     static function error_handler($error_level,$error_message,$error_file,$error_line,$error_context) {

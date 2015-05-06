@@ -1,2 +1,4 @@
-2015-05-06T10:16:15+02:00 [JarvisPHP] Answering to command: "echo"
-2015-05-06T10:20:30+02:00 [JarvisPHP] Answering to command: "echo"
+2015-05-06T15:20:06+02:00 [JarvisPHP DEBUG] Detected active session: Info_pluginlast command 1430918399, now is 1430918406
+2015-05-06T15:20:06+02:00 [JarvisPHP DEBUG] Info_plugin answer
+2015-05-06T15:20:06+02:00 [JarvisPHP DEBUG] User say: tell me more
+2015-05-06T15:20:06+02:00 [JarvisPHP INFO] JasperPHP says: "What? No! Ok, i am on Windows NT CED 6.1 build 7601 (Windows 7 Business Edition Service Pack 1) i586"

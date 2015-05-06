@@ -19,6 +19,10 @@ class Echo_plugin implements JarvisPluginInterface{
         JarvisSpeaker::speak($command);
     }
     
+    /**
+     * Get plugin's priority
+     * @return boolean
+     */
     function getPriority() {
         return $this->priority;
     }
@@ -32,6 +36,10 @@ class Echo_plugin implements JarvisPluginInterface{
         return preg_match('/echo/', $command);
     }
     
+    /**
+     * Does the plugin need a session?
+     * @return boolean
+     */
     function hasSession() {
         return false;
     }

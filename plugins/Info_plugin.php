@@ -26,7 +26,10 @@ class Info_plugin implements JarvisPluginInterface{
             JarvisSpeaker::speak("My name is JarvisPHP. I'm running on ".$_SERVER['SERVER_NAME']." with the ip address ".$_SERVER['SERVER_ADDR']);
         }
     }
-    
+    /**
+     * Get plugin's priority
+     * @return boolean
+     */
     function getPriority() {
         return $this->priority;
     }
@@ -40,6 +43,10 @@ class Info_plugin implements JarvisPluginInterface{
         return preg_match('/(info|information|who are you)/', $command);
     }
     
+    /**
+     * Does the plugin need a session?
+     * @return boolean
+     */
     function hasSession() {
         return true;
     }

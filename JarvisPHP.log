@@ -1,4 +1,5 @@
-2015-05-06T15:20:06+02:00 [JarvisPHP DEBUG] Detected active session: Info_pluginlast command 1430918399, now is 1430918406
-2015-05-06T15:20:06+02:00 [JarvisPHP DEBUG] Info_plugin answer
-2015-05-06T15:20:06+02:00 [JarvisPHP DEBUG] User say: tell me more
-2015-05-06T15:20:06+02:00 [JarvisPHP INFO] JasperPHP says: "What? No! Ok, i am on Windows NT CED 6.1 build 7601 (Windows 7 Business Edition Service Pack 1) i586"
+2015-05-07T08:25:51+02:00 [JarvisPHP DEBUG] Active session not detected or expired
+2015-05-07T08:25:51+02:00 [JarvisPHP DEBUG] Maybe Echo_plugin, check priority
+2015-05-07T08:25:51+02:00 [JarvisPHP DEBUG] Choosen plugin: Echo_plugin
+2015-05-07T08:25:51+02:00 [JarvisPHP DEBUG] Answering to command: "echo what i'm saying"
+2015-05-07T08:25:51+02:00 [JarvisPHP INFO] JasperPHP says: "echo what i'm saying"

@@ -1,10 +1,11 @@
 <?php
 
-class JarvisSpeaker {
+class JarvisTTS {
     
     public static function speak($sentence) {
         JarvisPHP::getLogger()->info('JasperPHP says: "'.$sentence.'"');
-        _JARVIS_TTS::speak($sentence);
+        $JarvisTTS = _JARVIS_TTS;
+        $JarvisTTS::speak($sentence);
     }
     
 }

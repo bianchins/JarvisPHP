@@ -5,9 +5,9 @@
  *
  * @author Stefano Bianchini
  */
-class say_tts {
+class Say_tts {
     
-    public function speak($sentence) {
+    public static function speak($sentence) {
         exec('/usr/bin/say "'.$sentence.'"');
     }
     

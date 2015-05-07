@@ -18,12 +18,12 @@ class Info_plugin implements JarvisPluginInterface{
         if(preg_match('/(tell me more)/', $command)) {
             //Testing session
             JarvisPHP::getLogger()->debug('User say: '.$command);
-            JarvisSpeaker::speak("What? No! Ok, i am on ". php_uname());
+            JarvisTTS::speak("What? No! Ok, i am on ". php_uname());
             JarvisSession::terminate();
         }
         else {
             JarvisPHP::getLogger()->debug('Answering to command: "'.$command.'"');
-            JarvisSpeaker::speak("My name is JarvisPHP. I'm running on ".$_SERVER['SERVER_NAME']." with the ip address ".$_SERVER['SERVER_ADDR']);
+            JarvisTTS::speak("My name is JarvisPHP. I'm running on ".$_SERVER['SERVER_NAME']." with the ip address ".$_SERVER['SERVER_ADDR']);
         }
     }
     /**

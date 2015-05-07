@@ -27,6 +27,6 @@ class JarvisSession {
     }
     
     static function get($name) {
-        return $_SESSION[$name];
+        return isset($_SESSION[$name]) ? $_SESSION[$name] : false;
     }
 }

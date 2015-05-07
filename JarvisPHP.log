@@ -1,5 +1,4 @@
-2015-05-07T08:25:51+02:00 [JarvisPHP DEBUG] Active session not detected or expired
-2015-05-07T08:25:51+02:00 [JarvisPHP DEBUG] Maybe Echo_plugin, check priority
-2015-05-07T08:25:51+02:00 [JarvisPHP DEBUG] Choosen plugin: Echo_plugin
-2015-05-07T08:25:51+02:00 [JarvisPHP DEBUG] Answering to command: "echo what i'm saying"
-2015-05-07T08:25:51+02:00 [JarvisPHP INFO] JasperPHP says: "echo what i'm saying"
+2015-05-07T09:56:25+02:00 [JarvisPHP DEBUG] Active session not detected or expired
+2015-05-07T09:56:25+02:00 [JarvisPHP DEBUG] Choosen plugin: JarvisPHP
+2015-05-07T09:56:25+02:00 [JarvisPHP WARN] No plugin found for command: stop!
+2015-05-07T09:56:25+02:00 [JarvisPHP INFO] JasperPHP says: "I am sorry, Sir. I did not understand your command."

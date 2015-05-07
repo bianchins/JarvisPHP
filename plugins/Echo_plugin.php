@@ -16,7 +16,7 @@ class Echo_plugin implements JarvisPluginInterface{
      */
     function answer($command) {
         JarvisPHP::getLogger()->debug('Answering to command: "'.$command.'"');
-        JarvisSpeaker::speak($command);
+        JarvisTTS::speak($command);
     }
     
     /**
@@ -41,6 +41,6 @@ class Echo_plugin implements JarvisPluginInterface{
      * @return boolean
      */
     function hasSession() {
-        return false;
+        return true;
     }
 }

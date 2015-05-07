@@ -13,9 +13,6 @@ class JarvisPHP {
     
     static function bootstrap() {
         
-        //Error handler
-        set_error_handler('JarvisPHP::error_handler');
-        
         //Autoloading classes
         spl_autoload_register(function($className)
         {
@@ -23,8 +20,10 @@ class JarvisPHP {
             $className=str_replace("\\","/",$className);
             $plugins="plugins/".(empty($namespace) ? "" : $namespace."/")."{$className}.php";
             $core="core/".(empty($namespace) ? "" : $namespace."/")."{$className}.php";
+            $speakers="speakers/".(empty($namespace) ? "" : $namespace."/")."{$className}.php";
             @include_once($plugins);
             @include_once($core);
+            @include_once($speakers);
         });
         //Configure the Logger
         Logger::configure('config/log4php.xml');
@@ -83,20 +82,12 @@ class JarvisPHP {
                 }
                 $choosen_plugin->answer($command);
             } else {
-                JarvisPHP::getLogger()->warn('No plugin found for command: '.$command);
+                JarvisPHP::getLogger()->debug('No plugin found for command: '.$command);
+                JarvisTTS::speak('I am sorry, Sir. I did not understand your command.');
             }
         }
         //Update last command timestamp
         JarvisSession::set('last_command_timestamp', time());
-    }
-
-    static function error_handler($error_level,$error_message,$error_file,$error_line,$error_context) {
-        switch($error_level) {
-            case E_USER_ERROR:
-            case E_USER_WARNING:     
-                JarvisPHP::getLogger()->error("[$errno] $errstr in $error_file on line $error_line");
-        }
-
     }
     
 } //JarvisPHP

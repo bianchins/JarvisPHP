@@ -8,7 +8,7 @@
 define('_ESPEAK_VOICE','m2');
 
 //Language of text-to-speech
-define('_ESPEAK_LANGUAGE','it');
+define('_ESPEAK_LANGUAGE', _LANGUAGE);
 
 //Amplitude (espeak -a <amplitude>)
 define('_ESPEAK_AMPLITUDE','100');

@@ -16,11 +16,9 @@ class JarvisPHP {
         //Autoloading classes
         spl_autoload_register(function($className)
         {
-            $namespace=str_replace("\\","/",__NAMESPACE__);
-            $className=str_replace("\\","/",$className);
-            $plugins="plugins/".(empty($namespace) ? "" : $namespace."/")."{$className}.php";
-            $core="core/".(empty($namespace) ? "" : $namespace."/")."{$className}.php";
-            $speakers="speakers/".(empty($namespace) ? "" : $namespace."/")."{$className}.php";
+            $plugins="plugins/{$className}/{$className}.php";
+            $core="core/{$className}.php";
+            $speakers="speakers/{$className}.php";
             @include_once($plugins);
             @include_once($core);
             @include_once($speakers);
@@ -33,6 +31,9 @@ class JarvisPHP {
         
         //Session
         JarvisSession::start();
+        
+        //Core localization
+        JarvisLanguage::loadCore();
     }
         
     static function getLogger() {
@@ -45,6 +46,14 @@ class JarvisPHP {
      */
     static function loadPlugin($plugin) {        
         array_push(JarvisPHP::$active_plugins, $plugin);
+    }
+    
+    /**
+     * Returns Jarvis Language setting
+     * @return string
+     */
+    static function getLanguage() {
+        return _LANGUAGE;
     }
     
     /**
@@ -83,7 +92,7 @@ class JarvisPHP {
                 $choosen_plugin->answer($command);
             } else {
                 JarvisPHP::getLogger()->debug('No plugin found for command: '.$command);
-                JarvisTTS::speak('I am sorry, Sir. I did not understand your command.');
+                JarvisTTS::speak(JarvisLanguage::translate('core_command_not_understand'));
             }
         }
         //Update last command timestamp

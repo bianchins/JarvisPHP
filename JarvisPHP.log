@@ -1,5 +1,4 @@
-2015-05-08T12:23:41+02:00 [JarvisPHP DEBUG] Active session not detected or expired
-2015-05-08T12:23:41+02:00 [JarvisPHP DEBUG] Maybe Info_plugin, check priority
-2015-05-08T12:23:41+02:00 [JarvisPHP DEBUG] Choosen plugin: Info_plugin
-2015-05-08T12:23:41+02:00 [JarvisPHP DEBUG] Answering to command: "info"
-2015-05-08T12:23:41+02:00 [JarvisPHP INFO] JasperPHP says: "My name is JarvisPHP. I'm running on localhost with the ip address 127.0.0.1"
+2015-05-08T16:43:22+02:00 [JarvisPHP DEBUG] Loading "en" language file
+2015-05-08T16:43:22+02:00 [JarvisPHP DEBUG] Active session not detected or expired
+2015-05-08T16:43:22+02:00 [JarvisPHP DEBUG] No plugin found for command: i am ste
+2015-05-08T16:43:22+02:00 [JarvisPHP INFO] JarvisPHP says: "I am sorry, Sir. I did not understand your command"

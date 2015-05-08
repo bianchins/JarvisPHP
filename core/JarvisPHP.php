@@ -33,7 +33,8 @@ class JarvisPHP {
         JarvisSession::start();
         
         //Core localization
-        JarvisLanguage::loadCore();
+        JarvisLanguage::loadCoreTranslation();
+        JarvisPHP::getLogger()->debug('Loading "'._LANGUAGE.'" language file');
     }
         
     static function getLogger() {
@@ -66,16 +67,22 @@ class JarvisPHP {
         if(JarvisSession::sessionInProgress() && (time() < (JarvisSession::get('last_command_timestamp')+_COMMAND_SESSION_TIMEOUT))) {
             JarvisPHP::getLogger()->debug('Detected active session: '.JarvisSession::getActivePlugin() . ' - last command '.JarvisSession::get('last_command_timestamp').', now is '.time());
             $plugin_class = JarvisSession::getActivePlugin();
+            //Load plugin's languages
+            JarvisLanguage::loadPluginTranslation($plugin_class);
             $plugin = new $plugin_class();
             $plugin->answer($command);
         }
         else {
+            //Clear all session variable
+            JarvisSession::reset();
             JarvisPHP::getLogger()->debug('Active session not detected or expired');
             $max_priority_found=-9999;
             $choosen_plugin = null;
             //Cycling plugins
             foreach(JarvisPHP::$active_plugins as $plugin_class) {
                $plugin = new $plugin_class();
+               //Load plugin's languages
+               JarvisLanguage::loadPluginTranslation($plugin_class);
                if($plugin->isLikely($command)) {
                    JarvisPHP::getLogger()->debug('Maybe '.$plugin_class.', check priority');
                    if($plugin->getPriority() > $max_priority_found) {
@@ -84,8 +91,8 @@ class JarvisPHP {
                    }
                }
             }
-            JarvisPHP::getLogger()->debug('Choosen plugin: '.get_class($choosen_plugin));
             if(!is_null($choosen_plugin)) {
+                JarvisPHP::getLogger()->debug('Choosen plugin: '.get_class($choosen_plugin));
                 if($choosen_plugin->hasSession()) {
                     JarvisSession::setActivePlugin(get_class($choosen_plugin));
                 }

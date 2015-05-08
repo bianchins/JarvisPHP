@@ -29,4 +29,8 @@ class JarvisSession {
     static function get($name) {
         return isset($_SESSION[$name]) ? $_SESSION[$name] : false;
     }
+    
+    static function reset() {
+        session_unset();
+    }
 }

@@ -15,8 +15,13 @@ class Echo_plugin implements JarvisPluginInterface{
      * @param string $command
      */
     function answer($command) {
-        JarvisPHP::getLogger()->debug('Answering to command: "'.$command.'"');
-        JarvisTTS::speak($command);
+        if(JarvisSession::get('echo_not_first_passage')) {
+            JarvisTTS::speak($command);
+        } else {
+            JarvisSession::set('echo_not_first_passage',true);
+            JarvisPHP::getLogger()->debug('Answering to command: "'.$command.'"');
+            JarvisTTS::speak(JarvisLanguage::translate('let_s_play',get_called_class()));
+        }
     }
     
     /**

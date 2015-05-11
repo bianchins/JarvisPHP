@@ -12,7 +12,7 @@ JarvisPHP was tested on a Raspberry PI, but it can be used over every *nix syste
 How can JarvisPhp do something? How can it interact with the enviroment?
 JarvisPhp uses plugins for execute the understood command. For example, if you ask "Who are you?" it activate a "Info plugin"
 that answer "My name is...".
-A plugin (you can write your own!) can do anything: for example, interact with `GPIO` of a Raspberry Pi (http://www.raspberry.org),
+A plugin (you can write your own!) can do anything: for example, interact with `GPIO` of a Raspberry Pi (http://www.raspberrypi.org),
 or play some music, query public weather api, read mails, connect to facebook and read notifications, and so on.
 ![JarvisPHP's architecture](https://cloud.githubusercontent.com/assets/4076011/7567407/248adedc-f7fd-11e4-9152-ce285c909697.png)
 

@@ -14,7 +14,7 @@ JarvisPhp uses plugins for execute the understood command. For example, if you a
 that answer "My name is...".
 A plugin (you can write your own!) can do anything: for example, interact with `GPIO` of a Raspberry Pi (http://www.raspberry.org),
 or play some music, query public weather api, read mails, connect to facebook and read notifications, and so on.
-![JarvisPHP's architecture](https://github.com/bianchins/JarvisPHP/images/architecture.png)
+![JarvisPHP's architecture](https://cloud.githubusercontent.com/assets/4076011/7567407/248adedc-f7fd-11e4-9152-ce285c909697.png)
 
 ##System's requirements
 *For core system*

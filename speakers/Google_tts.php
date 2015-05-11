@@ -4,6 +4,7 @@
  * Wrapper class for using GoogleTTS as tts
  *
  * @author Stefano Bianchini
+ * @website http://www.stefanobianchini.net
  */
 class Google_tts {
     

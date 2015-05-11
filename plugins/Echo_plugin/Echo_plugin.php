@@ -2,6 +2,8 @@
 
 /**
  * A simple Echo plugin
+ * @author Stefano Bianchini
+ * @website http://www.stefanobianchini.net
  */
 class Echo_plugin implements JarvisPluginInterface{
     /**
@@ -33,7 +35,7 @@ class Echo_plugin implements JarvisPluginInterface{
     }
     
     /**
-     * 
+     * Is it the right plugin for the command?
      * @param string $command
      * @return boolean
      */

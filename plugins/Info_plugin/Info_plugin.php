@@ -2,6 +2,8 @@
 
 /**
  * Info plugin
+ * @author Stefano Bianchini
+ * @website http://www.stefanobianchini.net
  */
 class Info_plugin implements JarvisPluginInterface{
     /**
@@ -23,7 +25,7 @@ class Info_plugin implements JarvisPluginInterface{
         }
         else {
             JarvisPHP::getLogger()->debug('Answering to command: "'.$command.'"');
-            JarvisTTS::speak(sprintf(JarvisLanguage::translate('my_name_is',get_called_class()),$_SERVER['SERVER_NAME'],$_SERVER['SERVER_ADDR']));
+            JarvisTTS::speak(sprintf(JarvisLanguage::translate('my_name_is',get_called_class()),_SYSTEM_NAME, $_SERVER['SERVER_NAME'],$_SERVER['SERVER_ADDR']));
         }
     }
     /**
@@ -35,7 +37,7 @@ class Info_plugin implements JarvisPluginInterface{
     }
     
     /**
-     * 
+     * Is it the right plugin for the command?
      * @param string $command
      * @return boolean
      */

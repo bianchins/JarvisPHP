@@ -1,5 +1,7 @@
 <?php 
+//Composer autoload
 require 'vendor/autoload.php';
+//JarvisPHP Core
 require 'core/JarvisPHP.php';
 
 //Initialize JarvisPHP
@@ -10,13 +12,13 @@ JarvisPHP::loadPlugin('Info_plugin');
 
 //Here we go
 $app = new \Slim\Slim(array('debug' => false));
+//POST /answer route
 $app->post('/answer/', function () use ($app) {
     JarvisPHP::elaborateCommand($app->request->post('command'));
-    echo file_get_contents('JarvisPHP.log');
 });
 
+//Slim Framework Custom Error handler
 $app->error(function (\Exception $e) use ($app) {
-    //Slim Framework Custom Error handler
     JarvisPHP::getLogger()->error('Code: '.$e->getCode().' - '.$e->getMessage().' in '.$e->getFile().' on line '.$e->getLine().'');
 });
 

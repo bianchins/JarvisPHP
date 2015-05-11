@@ -4,11 +4,15 @@
  * JarvisLanguage
  *
  * @author Stefano Bianchini
+ * @website http://www.stefanobianchini.net
  */
 class JarvisLanguage {
     
     private static $data = array();
     
+    /**
+     * Load core translations
+     */
     public static function loadCoreTranslation() {
         $_lang = array();
         JarvisLanguage::$data['core'] = array();
@@ -17,6 +21,10 @@ class JarvisLanguage {
         JarvisLanguage::$data['core'] = array_merge(JarvisLanguage::$data['core'], $_lang);
     }
     
+    /**
+     * Load the translations of a plugin (plugin name)
+     * @param string $plugin
+     */
     public static function loadPluginTranslation($plugin) {
         $_lang = array();
         JarvisLanguage::$data[$plugin] = array();
@@ -28,6 +36,12 @@ class JarvisLanguage {
         }
     }
     
+    /**
+     * Translate a string
+     * @param string $text
+     * @param string $plugin
+     * @return string
+     */
     public static function translate($text, $plugin='core') {
         if(isset(JarvisLanguage::$data[$plugin][$text])) {
             return JarvisLanguage::$data[$plugin][$text];

@@ -11,8 +11,10 @@ class JarvisPHP {
     
     static $active_plugins = array();
     
-    static function bootstrap() {
-        
+    /**
+     * Bootstrap JarvisPHP core
+     */
+    static function bootstrap() {       
         //Autoloading classes
         spl_autoload_register(function($className)
         {
@@ -29,14 +31,18 @@ class JarvisPHP {
         //Load config
         require 'config/Jarvis.php';
         
-        //Session
+        //Start session
         JarvisSession::start();
         
         //Core localization
         JarvisLanguage::loadCoreTranslation();
         JarvisPHP::getLogger()->debug('Loading "'._LANGUAGE.'" language file');
     }
-        
+    
+    /**
+     * Get Log4php object
+     * @return Logger
+     */
     static function getLogger() {
         return Logger::getLogger('JarvisPHP');
     }

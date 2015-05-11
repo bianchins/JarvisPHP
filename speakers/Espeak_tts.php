@@ -6,6 +6,7 @@ require 'config/Espeak_config.php';
  * Wrapper class for using espeak as tts
  *
  * @author Stefano Bianchini
+ * @website http://www.stefanobianchini.net
  */
 class Espeak_tts {
     

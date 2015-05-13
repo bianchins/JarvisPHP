@@ -30,7 +30,7 @@ class Info_plugin implements JarvisPluginInterface{
     }
     /**
      * Get plugin's priority
-     * @return boolean
+     * @return int
      */
     function getPriority() {
         return $this->priority;

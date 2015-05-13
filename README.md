@@ -8,6 +8,9 @@ The scenario is simple: the owner (user) speak through a bluetooth headset conne
 on the headset itself. The result of the voice recognization is sent to JarvisPHP, that try to understand the command and do something.
 JarvisPHP was tested on a Raspberry PI, but it can be used over every *nix system.
 
+##Documentations
+Please refer to wiki: https://github.com/bianchins/JarvisPHP/wiki/
+
 ##System's architecture
 How can JarvisPhp do something? How can it interact with the enviroment?
 JarvisPhp uses plugins for execute the understood command. For example, if you ask "Who are you?" it activate a "Info plugin"

@@ -14,6 +14,7 @@ interface JarvisPluginInterface
     
     /**
      * Get the priority of the plugin
+     * @return int
      */
     public function getPriority();
     
@@ -26,6 +27,7 @@ interface JarvisPluginInterface
     
     /**
      * The plugin does need a session?
+     * @return boolean
      */
     public function hasSession();
 }

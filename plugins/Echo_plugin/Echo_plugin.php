@@ -40,7 +40,7 @@ class Echo_plugin implements JarvisPluginInterface{
      * @return boolean
      */
     function isLikely($command) {
-        return preg_match('/echo/', $command);
+        return preg_match(JarvisLanguage::translate('preg_match_activate_plugin',get_called_class()), $command);
     }
     
     /**

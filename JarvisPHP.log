@@ -1,4 +1,5 @@
-2015-05-08T17:50:00+02:00 [JarvisPHP DEBUG] Loading "en" language file
-2015-05-08T17:50:00+02:00 [JarvisPHP DEBUG] Active session not detected or expired
-2015-05-08T17:50:00+02:00 [JarvisPHP DEBUG] No plugin found for command: i am ste
-2015-05-08T17:50:00+02:00 [JarvisPHP INFO] JarvisPHP says: "I am sorry, Sir. I did not understand your command"
+2015-05-14T11:03:12+02:00 [JarvisPHP DEBUG] Loading "en" language file
+2015-05-14T11:03:12+02:00 [JarvisPHP DEBUG] Active session not detected or expired
+2015-05-14T11:03:12+02:00 [JarvisPHP DEBUG] Maybe ActualOutsideTemperature_plugin, check priority
+2015-05-14T11:03:12+02:00 [JarvisPHP DEBUG] Choosen plugin: ActualOutsideTemperature_plugin
+2015-05-14T11:03:12+02:00 [JarvisPHP INFO] JarvisPHP says: "The actual outside temperature is 26 degrees and the umidity is 57 percent"

@@ -1,11 +1,18 @@
 <?php
 
+namespace JarvisPHP\Plugins\ActualOutsideTemperature_plugin;
+
+use JarvisPHP\core\JarvisSession;
+use JarvisPHP\core\JarvisPHP;
+use JarvisPHP\core\JarvisLanguage;
+use JarvisPHP\core\JarvisTTS;
+
 /**
- * It say 
+ * ActualOutsideTemperature_plugin
  *
  * @author Stefano Bianchini
  */
-class ActualOutsideTemperature_plugin implements JarvisPluginInterface {
+class ActualOutsideTemperature_plugin implements \JarvisPHP\Core\JarvisPluginInterface {
     /**
      * Priority of plugin
      * @var int  

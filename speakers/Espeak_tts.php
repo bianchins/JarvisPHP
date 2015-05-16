@@ -1,4 +1,7 @@
 <?php
+
+namespace JarvisPHP\Speakers;
+
 //Load TTS config
 require 'config/Espeak_config.php';
 

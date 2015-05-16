@@ -1,5 +1,7 @@
 <?php
 
+namespace JarvisPHP\Speakers;
+
 /**
  * Wrapper class for using GoogleTTS as tts
  *

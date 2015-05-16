@@ -1,5 +1,7 @@
 <?php
 
+namespace JarvisPHP\Speakers;
+
 /**
  * Wrapper class for using OSX Say as tts
  *

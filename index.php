@@ -1,4 +1,7 @@
 <?php 
+
+use \JarvisPHP\Core\JarvisPHP;
+
 //Composer autoload
 require 'vendor/autoload.php';
 //JarvisPHP Core

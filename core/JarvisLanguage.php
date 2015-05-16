@@ -1,5 +1,7 @@
 <?php
 
+namespace JarvisPHP\Core;
+
 /**
  * JarvisLanguage
  *
@@ -26,9 +28,11 @@ class JarvisLanguage {
      * @param string $plugin
      */
     public static function loadPluginTranslation($plugin) {
+        $plugin_class = JarvisPHP::getRealClassName($plugin);
         $_lang = array();
         JarvisLanguage::$data[$plugin] = array();
-        $language_file = 'plugins/'.$plugin.'/language/'.$plugin."_"._LANGUAGE.'.php';
+        $language_file = 'Plugins/'.$plugin_class.'/language/'.$plugin_class."_"._LANGUAGE.'.php';
+
         //Check if translation file exists
         if(file_exists($language_file)) {
             require $language_file;

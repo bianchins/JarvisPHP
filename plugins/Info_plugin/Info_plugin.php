@@ -1,11 +1,18 @@
 <?php
 
+namespace JarvisPHP\Plugins\Info_plugin;
+
+use JarvisPHP\core\JarvisSession;
+use JarvisPHP\core\JarvisPHP;
+use JarvisPHP\core\JarvisLanguage;
+use JarvisPHP\core\JarvisTTS;
+
 /**
  * Info plugin
  * @author Stefano Bianchini
  * @website http://www.stefanobianchini.net
  */
-class Info_plugin implements JarvisPluginInterface{
+class Info_plugin implements \JarvisPHP\Core\JarvisPluginInterface{
     /**
      * Priority of plugin
      * @var int  
@@ -19,7 +26,7 @@ class Info_plugin implements JarvisPluginInterface{
     function answer($command) {
         if(preg_match(JarvisLanguage::translate('preg_match_tell_more',get_called_class()), $command)) {
             //Testing session
-            JarvisPHP::getLogger()->debug('User say: '.$command);
+            JarvisPHP::getLogger()->debug('User says: '.$command);
             JarvisTTS::speak("Ok, i am on ". php_uname());
             JarvisSession::terminate();
         }

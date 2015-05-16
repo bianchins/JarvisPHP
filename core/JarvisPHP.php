@@ -1,5 +1,7 @@
 <?php
 
+namespace JarvisPHP\core;
+
 /**
  * JarvisPHP Main Class
  * @author Stefano Bianchini
@@ -18,15 +20,16 @@ class JarvisPHP {
         //Autoloading classes
         spl_autoload_register(function($className)
         {
-            $plugins="plugins/{$className}/{$className}.php";
-            $core="core/{$className}.php";
-            $speakers="speakers/{$className}.php";
-            @include_once($plugins);
-            @include_once($core);
-            @include_once($speakers);
+            //Obtain the pure class name
+            $pureClassName = JarvisPHP::getRealClassName($className);
+            //Build the path
+            $namespace = JarvisPHP::getNameSpace($className);
+            if(file_exists($namespace.'/'.$pureClassName.'.php')) {
+                include_once($namespace.'/'.$pureClassName.'.php');
+            }
         });
         //Configure the Logger
-        Logger::configure('config/log4php.xml');
+        \Logger::configure('config/log4php.xml');
         
         //Load config
         require 'config/Jarvis.php';
@@ -44,7 +47,7 @@ class JarvisPHP {
      * @return Logger
      */
     static function getLogger() {
-        return Logger::getLogger('JarvisPHP');
+        return \Logger::getLogger('JarvisPHP');
     }
     
     /**
@@ -52,7 +55,7 @@ class JarvisPHP {
      * @param string $plugin
      */
     static function loadPlugin($plugin) {        
-        array_push(JarvisPHP::$active_plugins, $plugin);
+        array_push(JarvisPHP::$active_plugins, 'JarvisPHP\Plugins\\'.$plugin.'\\'.$plugin);
     }
     
     /**
@@ -90,7 +93,7 @@ class JarvisPHP {
                //Load plugin's languages
                JarvisLanguage::loadPluginTranslation($plugin_class);
                if($plugin->isLikely($command)) {
-                   JarvisPHP::getLogger()->debug('Maybe '.$plugin_class.', check priority');
+                   JarvisPHP::getLogger()->debug('Maybe '.JarvisPHP::getRealClassName($plugin_class).', check priority');
                    if($plugin->getPriority() > $max_priority_found) {
                        $max_priority_found = $plugin->getPriority();
                        $choosen_plugin = $plugin;
@@ -98,7 +101,7 @@ class JarvisPHP {
                }
             }
             if(!is_null($choosen_plugin)) {
-                JarvisPHP::getLogger()->debug('Choosen plugin: '.get_class($choosen_plugin));
+                JarvisPHP::getLogger()->debug('Choosen plugin: '.JarvisPHP::getRealClassName(get_class($choosen_plugin)));
                 if($choosen_plugin->hasSession()) {
                     JarvisSession::setActivePlugin(get_class($choosen_plugin));
                 }
@@ -110,6 +113,25 @@ class JarvisPHP {
         }
         //Update last command timestamp
         JarvisSession::set('last_command_timestamp', time());
+    }
+    
+    static function getRealClassName($fullClassName) {
+        //Explode class name
+        $classNameArray = explode('\\',$fullClassName);
+        //Obtain the pure class name
+        return end($classNameArray);
+    }
+    
+    static function getNameSpace($fullClassName) {
+       //Explode class name
+        $classNameArray = explode('\\',$fullClassName);
+        //Remove the pure class name
+        array_pop($classNameArray);
+        //Remove the JarvisPHP main namespace
+        array_shift($classNameArray); 
+        //Build the path
+        $namespace = implode('/', $classNameArray);
+        return $namespace;
     }
     
 } //JarvisPHP

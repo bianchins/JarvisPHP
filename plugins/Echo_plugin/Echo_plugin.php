@@ -1,11 +1,18 @@
 <?php
 
+namespace JarvisPHP\Plugins\Echo_plugin;
+
+use JarvisPHP\core\JarvisSession;
+use JarvisPHP\core\JarvisPHP;
+use JarvisPHP\core\JarvisLanguage;
+use JarvisPHP\core\JarvisTTS;
+
 /**
  * A simple Echo plugin
  * @author Stefano Bianchini
  * @website http://www.stefanobianchini.net
  */
-class Echo_plugin implements JarvisPluginInterface{
+class Echo_plugin implements \JarvisPHP\Core\JarvisPluginInterface{
     /**
      * Priority of plugin
      * @var int  

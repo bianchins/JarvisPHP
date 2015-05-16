@@ -1,4 +1,7 @@
 <?php
+
+namespace JarvisPHP\core;
+
 /**
  * Public interface for plugins
  * @author Stefano Bianchini

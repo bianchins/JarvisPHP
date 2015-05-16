@@ -1,4 +1,7 @@
 <?php
+
+namespace JarvisPHP\Core;
+
 /**
  * Class for manage session (context)
  * @author Stefano Bianchini

@@ -1,2 +1,3 @@
 JarvisPHP.log
-nbproject/private/private.xml
+nbproject/**
+vendor/**

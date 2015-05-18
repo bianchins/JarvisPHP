@@ -23,6 +23,7 @@ or play some music, query public weather api, read mails, connect to facebook an
 *For core system*
 - Php 5.3 or newer
 - a web server (lighttpd recommended)
+- Composer (https://getcomposer.org/)
 
 *For Text To Speech*
 It depends on which TTS you choose in configuration files. For example:
@@ -30,4 +31,4 @@ It depends on which TTS you choose in configuration files. For example:
 - for Say tts plugin, it works only on OSX
 - for Google TTS plugin, `aplay` required
 Of course you can edit a TTS plugins and replace aplay with your audio player. 
-Or you can write your own TTS, just place it in the `speakers` folder
+Or you can write your own TTS, just place it in the `Speakers` folder

@@ -13,6 +13,8 @@ class JarvisPHP {
     
     static $active_plugins = array();
     
+    static $slim = null;
+    
     /**
      * Bootstrap JarvisPHP core
      */
@@ -40,6 +42,21 @@ class JarvisPHP {
         //Core localization
         JarvisLanguage::loadCoreTranslation();
         JarvisPHP::getLogger()->debug('Loading "'._LANGUAGE.'" language file');
+        
+        //Routing
+        JarvisPHP::$slim = new \Slim\Slim(array('debug' => false));
+                
+        //POST /answer route
+        JarvisPHP::$slim->post('/answer/', function () {
+            JarvisPHP::elaborateCommand(JarvisPHP::$slim->request->post('command'));
+        });
+
+        //Slim Framework Custom Error handler
+        JarvisPHP::$slim->error(function (\Exception $e) {
+            JarvisPHP::getLogger()->error('Code: '.$e->getCode().' - '.$e->getMessage().' in '.$e->getFile().' on line '.$e->getLine().'');
+        });
+        
+        JarvisPHP::$slim->run();
     }
     
     /**

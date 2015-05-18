@@ -11,7 +11,7 @@ JarvisPHP was tested on a Raspberry PI, but it can be used over every *nix syste
 ##Documentations
 Please refer to wiki: https://github.com/bianchins/JarvisPHP/wiki/
 
-####Remember to execute `composer install`: this will install composer dependences####
+*Remember to execute `composer install`: this will install composer dependences*
 
 ##System's architecture
 How can JarvisPhp do something? How can it interact with the enviroment?

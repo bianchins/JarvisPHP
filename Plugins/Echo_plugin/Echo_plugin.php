@@ -24,13 +24,17 @@ class Echo_plugin implements \JarvisPHP\Core\JarvisPluginInterface{
      * @param string $command
      */
     function answer($command) {
+        $answer = '';
         if(JarvisSession::get('echo_not_first_passage')) {
-            JarvisTTS::speak($command);
+            $answer = $command;
         } else {
             JarvisSession::set('echo_not_first_passage',true);
             JarvisPHP::getLogger()->debug('Answering to command: "'.$command.'"');
-            JarvisTTS::speak(JarvisLanguage::translate('let_s_play',get_called_class()));
+            $answer = JarvisLanguage::translate('let_s_play',get_called_class());
         }
+        JarvisTTS::speak($answer);
+        $response = new \JarvisPHP\Core\JarvisResponse($answer, JarvisPHP::getRealClassName(get_called_class()), true);
+        $response->send();
     }
     
     /**

@@ -14,7 +14,7 @@ class JarvisPHP {
     static $active_plugins = array();
     
     static $slim = null;
-    
+        
     /**
      * Bootstrap JarvisPHP core
      */
@@ -126,6 +126,8 @@ class JarvisPHP {
             } else {
                 JarvisPHP::getLogger()->debug('No plugin found for command: '.$command);
                 JarvisTTS::speak(JarvisLanguage::translate('core_command_not_understand'));
+                $response = new \JarvisPHP\Core\JarvisResponse(JarvisLanguage::translate('core_command_not_understand'));
+                $response->send();
             }
         }
         //Update last command timestamp

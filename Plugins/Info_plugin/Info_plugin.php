@@ -24,16 +24,21 @@ class Info_plugin implements \JarvisPHP\Core\JarvisPluginInterface{
      * @param string $command
      */
     function answer($command) {
+        $answer = '';
         if(preg_match(JarvisLanguage::translate('preg_match_tell_more',get_called_class()), $command)) {
             //Testing session
             JarvisPHP::getLogger()->debug('User says: '.$command);
-            JarvisTTS::speak("Ok, i am on ". php_uname());
+            $answer = 'Ok, i am on '. php_uname();
             JarvisSession::terminate();
         }
         else {
             JarvisPHP::getLogger()->debug('Answering to command: "'.$command.'"');
-            JarvisTTS::speak(sprintf(JarvisLanguage::translate('my_name_is',get_called_class()),_SYSTEM_NAME, $_SERVER['SERVER_NAME'],$_SERVER['SERVER_ADDR']));
+            $answer = sprintf(JarvisLanguage::translate('my_name_is',get_called_class()),_SYSTEM_NAME, $_SERVER['SERVER_NAME'],$_SERVER['SERVER_ADDR']);
+            
         }
+        JarvisTTS::speak($answer);
+        $response = new \JarvisPHP\Core\JarvisResponse($answer, JarvisPHP::getRealClassName(get_called_class()), true);
+        $response->send();
     }
     /**
      * Get plugin's priority

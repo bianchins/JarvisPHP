@@ -37,8 +37,10 @@ class ActualOutsideTemperature_plugin implements \JarvisPHP\Core\JarvisPluginInt
         $json = curl_exec($session);
         // Convert JSON to PHP object
         $phpObj =  json_decode($json);
-        
-        JarvisTTS::speak(sprintf(JarvisLanguage::translate('actual_temperature_outside_is',get_called_class()),$phpObj->query->results->channel->item->condition->temp, $phpObj->query->results->channel->atmosphere->humidity));
+        $answer = sprintf(JarvisLanguage::translate('actual_temperature_outside_is',get_called_class()),$phpObj->query->results->channel->item->condition->temp, $phpObj->query->results->channel->atmosphere->humidity);
+        JarvisTTS::speak($answer);
+        $response = new \JarvisPHP\Core\JarvisResponse($answer, JarvisPHP::getRealClassName(get_called_class()), true);
+        $response->send();
         
     }
     

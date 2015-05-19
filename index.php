@@ -5,7 +5,7 @@ use \JarvisPHP\Core\JarvisPHP;
 //Composer autoload
 require 'vendor/autoload.php';
 //JarvisPHP Core
-require 'core/JarvisPHP.php';
+require 'Core/JarvisPHP.php';
 
 //Load plugins
 JarvisPHP::loadPlugin('Echo_plugin');

@@ -14,7 +14,7 @@ class JarvisTest extends PHPUnit_Framework_TestCase {
     protected function setUp()
     {
         $this->client = new GuzzleHttp\Client([
-            'base_url' => 'http://localhost/JarvisPHP/',
+            'base_url' => 'http://localhost/',
             'defaults' => ['exceptions' => false]
         ]);
     }

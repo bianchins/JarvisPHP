@@ -14,7 +14,7 @@ class JarvisTest extends PHPUnit_Framework_TestCase {
     protected function setUp()
     {
         $this->client = new GuzzleHttp\Client([
-            'base_url' => 'http://localhost/index.php/',
+            'base_url' => 'http://localhost/JarvisPHP/',
             'defaults' => ['exceptions' => false]
         ]);
     }
@@ -27,6 +27,7 @@ class JarvisTest extends PHPUnit_Framework_TestCase {
         ]);
         $this->assertEquals(200, $response->getStatusCode());
         $data = $response->json();
+        echo $response;
         $this->assertEquals($data['choosen_plugin'], 'Info_plugin');
     }
     

@@ -12,10 +12,10 @@ before_script:
   - echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
   # configure apache virtual hosts
-  - sudo cp -f test/travis-ci-apache /etc/apache2/sites-available/default
-  - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
-  - ls -lA /etc/apache2/sites-available
-  - curl --data "command=echo" http://localhost/index.php?/answer
+  - sudo cp -f test/travis-ci-apache /etc/apache2/sites-enabled/default
+  - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-enabled/default
+  - ls -lA /etc/apache2/sites-enabled
+  - curl --data "command=echo" http://localhost/index.php/answer
   - curl http://localhost/
   - sudo service apache2 restart
 script: phpunit --colors test/JarvisTest.php

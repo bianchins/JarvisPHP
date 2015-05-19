@@ -1,4 +1,5 @@
 # JarvisPHP
+[![Build Status](https://travis-ci.org/bianchins/JarvisPHP.svg?branch=master)](https://travis-ci.org/bianchins/JarvisPHP)
 ### Your personal butler written in Php
 
 JarvisPhp is a REST API system written in Php that permit a direct interact with user through commands.

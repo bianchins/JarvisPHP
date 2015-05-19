@@ -27,7 +27,6 @@ class JarvisTest extends PHPUnit_Framework_TestCase {
         ]);
         $this->assertEquals(200, $response->getStatusCode());
         $data = $response->json();
-        echo $response;
         $this->assertEquals($data['choosen_plugin'], 'Info_plugin');
     }
     

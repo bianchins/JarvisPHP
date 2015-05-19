@@ -2,10 +2,10 @@
 
 namespace JarvisPHP\Plugins\Info_plugin;
 
-use JarvisPHP\core\JarvisSession;
-use JarvisPHP\core\JarvisPHP;
-use JarvisPHP\core\JarvisLanguage;
-use JarvisPHP\core\JarvisTTS;
+use JarvisPHP\Core\JarvisSession;
+use JarvisPHP\Core\JarvisPHP;
+use JarvisPHP\Core\JarvisLanguage;
+use JarvisPHP\Core\JarvisTTS;
 
 /**
  * Info plugin

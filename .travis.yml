@@ -2,6 +2,7 @@ language: php
 php:
   - 5.4
 before_script: 
+  - composer self-update  
   - composer install --no-interaction --prefer-source --dev
   - sudo apt-get update
   - sudo apt-get install apache2 libapache2-mod-fastcgi
@@ -13,6 +14,6 @@ before_script:
   # configure apache virtual hosts
   - sudo cp -f test/travis-ci-apache /etc/apache2/sites-available/default
   - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
-  - cat /etc/apache2/sites-available/default
+  - curl --data "command=echo" http://localhost/answer
   - sudo service apache2 restart
 script: phpunit --colors test/JarvisTest.php

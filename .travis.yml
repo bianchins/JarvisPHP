@@ -15,7 +15,7 @@ before_script:
   - sudo cp -f test/travis-ci-apache /etc/apache2/sites-available/default
   - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
   - ls -lA /etc/apache2/sites-available
+  - sudo service apache2 restart
   - curl --data "command=echo" http://localhost/index.php/answer
   - curl http://localhost/
-  - sudo service apache2 restart
 script: phpunit --colors test/JarvisTest.php

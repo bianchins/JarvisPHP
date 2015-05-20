@@ -1,6 +1,6 @@
 # JarvisPHP
 ### Your personal butler written in Php
-[![Build Status](https://travis-ci.org/bianchins/JarvisPHP.svg?branch=master)](https://travis-ci.org/bianchins/JarvisPHP) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/bianchins/JarvisPHP/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/bianchins/JarvisPHP/?branch=master)
+[![Build Status](https://travis-ci.org/bianchins/JarvisPHP.svg?branch=master)](https://travis-ci.org/bianchins/JarvisPHP) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/bianchins/JarvisPHP/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/bianchins/JarvisPHP/?branch=master) [![Codacy Badge](https://www.codacy.com/project/badge/31919d1e5f444ddf92a4f2abb830adb5)](https://www.codacy.com/app/bianchins/JarvisPHP)
 
 JarvisPhp is a REST API system written in Php that permit a direct interact with user through commands.
 The commands may be spoken by voice and recognized by a Speech-to-text system, for example an Android application (via Android STT)

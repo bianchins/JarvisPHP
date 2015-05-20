@@ -8,9 +8,7 @@ namespace JarvisPHP\Core;
  * @website http://www.stefanobianchini.net
  */
 class JarvisPHP {
-       
-    private static $tokens = array();
-    
+           
     private static $active_plugins = array();
     
     public static $slim = null;

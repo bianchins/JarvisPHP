@@ -19,8 +19,10 @@ class JarvisLanguage {
         $_lang = array();
         JarvisLanguage::$data['core'] = array();
         //Loading JarvisPHP Core language
-        require 'language/JarvisPHP_'._LANGUAGE.'.php';
-        JarvisLanguage::$data['core'] = array_merge(JarvisLanguage::$data['core'], $_lang);
+        if(file_exists('language/JarvisPHP_'._LANGUAGE.'.php')) {
+            require 'language/JarvisPHP_'._LANGUAGE.'.php';
+            JarvisLanguage::$data['core'] = array_merge(JarvisLanguage::$data['core'], $_lang);
+        }
     }
     
     /**

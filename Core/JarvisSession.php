@@ -12,7 +12,7 @@ class JarvisSession {
     /**
      * Begin session
      */
-    static function start() {
+    public static function start() {
         session_start();
     }
     
@@ -20,7 +20,7 @@ class JarvisSession {
      * Set active plugin to session
      * @param string $pluginName
      */
-    static function setActivePlugin($pluginName) {
+    public static function setActivePlugin($pluginName) {
         $_SESSION['active_plugin'] = $pluginName;
     }
     
@@ -28,7 +28,7 @@ class JarvisSession {
      * Get active plugin
      * @return string
      */
-    static function getActivePlugin() {
+    public static function getActivePlugin() {
         return $_SESSION['active_plugin'];
     }
     
@@ -36,14 +36,14 @@ class JarvisSession {
      * Check if a session is in progress
      * @return boolena
      */
-    static function sessionInProgress() {
+    public static function sessionInProgress() {
         return !empty($_SESSION['active_plugin']);
     }
     
     /**
      * Ends the session
      */
-    static function terminate() {
+    public static function terminate() {
         session_destroy();
     }
     
@@ -52,7 +52,7 @@ class JarvisSession {
      * @param string $name
      * @param string $value
      */
-    static function set($name, $value) {
+    public static function set($name, $value) {
         $_SESSION[$name] = $value;
     }
     
@@ -61,14 +61,14 @@ class JarvisSession {
      * @param string $name
      * @return string
      */
-    static function get($name) {
+    public static function get($name) {
         return isset($_SESSION[$name]) ? $_SESSION[$name] : false;
     }
     
     /**
      * Reset session
      */
-    static function reset() {
+    public static function reset() {
         session_unset();
     }
 }

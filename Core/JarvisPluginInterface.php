@@ -1,6 +1,6 @@
 <?php
 
-namespace JarvisPHP\core;
+namespace JarvisPHP\Core;
 
 /**
  * Public interface for plugins

@@ -9,16 +9,16 @@ namespace JarvisPHP\Core;
  */
 class JarvisPHP {
        
-    static $tokens = array();
+    private static $tokens = array();
     
-    static $active_plugins = array();
+    private static $active_plugins = array();
     
-    static $slim = null;
+    public static $slim = null;
         
     /**
      * Bootstrap JarvisPHP core
      */
-    static function bootstrap() {       
+    public static function bootstrap() {       
         //Autoloading classes
         spl_autoload_register(function($className)
         {
@@ -63,7 +63,7 @@ class JarvisPHP {
      * Get Log4php object
      * @return Logger
      */
-    static function getLogger() {
+    public static function getLogger() {
         return \Logger::getLogger('JarvisPHP');
     }
     
@@ -71,7 +71,7 @@ class JarvisPHP {
      * Load a plugin
      * @param string $plugin
      */
-    static function loadPlugin($plugin) {        
+    public static function loadPlugin($plugin) {        
         array_push(JarvisPHP::$active_plugins, 'JarvisPHP\Plugins\\'.$plugin.'\\'.$plugin);
     }
     
@@ -79,7 +79,7 @@ class JarvisPHP {
      * Returns Jarvis Language setting
      * @return string
      */
-    static function getLanguage() {
+    public static function getLanguage() {
         return _LANGUAGE;
     }
     
@@ -87,7 +87,7 @@ class JarvisPHP {
      * Parse the command and execute the plugin
      * @param string $command
      */
-    static function elaborateCommand($command) {
+    public static function elaborateCommand($command) {
                 
         //Verify if there is an active plugin and the command session timeout
         if(JarvisSession::sessionInProgress() && (time() < (JarvisSession::get('last_command_timestamp')+_COMMAND_SESSION_TIMEOUT))) {
@@ -134,14 +134,14 @@ class JarvisPHP {
         JarvisSession::set('last_command_timestamp', time());
     }
     
-    static function getRealClassName($fullClassName) {
+    public static function getRealClassName($fullClassName) {
         //Explode class name
         $classNameArray = explode('\\',$fullClassName);
         //Obtain the pure class name
         return end($classNameArray);
     }
     
-    static function getNameSpace($fullClassName) {
+    public static function getNameSpace($fullClassName) {
        //Explode class name
         $classNameArray = explode('\\',$fullClassName);
         //Remove the pure class name

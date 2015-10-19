@@ -49,7 +49,8 @@ class JarvisPHP {
         //POST /answer route
         JarvisPHP::$slim->post('/answer/', function () {
             //Detect if the request forces a TTS
-            if(!empty(JarvisPHP::$slim->request->post('tts')) && file_exists('Speakers\\'.JarvisPHP::$slim->request->post('tts').'.php')) {
+            $ttsFromPostRequest = JarvisPHP::$slim->request->post('tts');
+            if(!empty($ttsFromPostRequest) && file_exists('Speakers\\'.JarvisPHP::$slim->request->post('tts').'.php')) {
                 $forcedTTS = JarvisPHP::$slim->request->post('tts');
             } else {
                 $forcedTTS = _JARVIS_TTS;

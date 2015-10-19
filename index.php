@@ -2,7 +2,7 @@
 
 use \JarvisPHP\Core\JarvisPHP;
 
-error_reporting(E_ALL & ~E_NOTICE);
+//error_reporting(E_ALL & ~E_NOTICE);
 
 //Composer autoload
 require 'vendor/autoload.php';

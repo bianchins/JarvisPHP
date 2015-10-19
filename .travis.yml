@@ -16,4 +16,4 @@ before_script:
   - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
   - sudo service apache2 restart
   # curl --data "command=echo" http://localhost/index.php/answer
-script: phpunit --colors --verbose test/JarvisTest.php
+script: phpunit --colors --debug --verbose test/JarvisTest.php

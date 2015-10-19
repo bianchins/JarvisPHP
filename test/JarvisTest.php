@@ -28,6 +28,7 @@ class JarvisTest extends PHPUnit_Framework_TestCase {
             ]
         ]);
         $this->assertEquals(200, $response->getStatusCode());
+        echo "response=".$response->getBody(true);
         $data = $response->json();
         $this->assertEquals($data['choosen_plugin'], 'Info_plugin');
     }
@@ -40,6 +41,7 @@ class JarvisTest extends PHPUnit_Framework_TestCase {
             ]
         ]);
         $this->assertEquals(200, $response->getStatusCode());
+        echo "response=".$response->getBody(true);
         $data = $response->json();
         $this->assertEquals($data['choosen_plugin'], 'Echo_plugin');
     }
@@ -52,6 +54,7 @@ class JarvisTest extends PHPUnit_Framework_TestCase {
             ]
         ]);
         $this->assertEquals(200, $response->getStatusCode());
+        echo "response=".$response->getBody(true);
         $data = $response->json();
         $this->assertEquals($data['choosen_plugin'], 'ActualOutsideTemperature_plugin');
     }

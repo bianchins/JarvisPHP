@@ -16,8 +16,8 @@ class JarvisTTS {
      * @param string $sentence
      */
     public static function speak($sentence) {
-        JarvisPHP::getLogger()->info('JarvisPHP says: "'.$sentence.'"');
-        $JarvisTTS = 'JarvisPHP\Speakers\\'._JARVIS_TTS;
+        JarvisPHP::getLogger()->info('JarvisPHP says with '.JarvisPHP::$TTS_name.': "'.$sentence.'"');
+        $JarvisTTS = 'JarvisPHP\Speakers\\'.JarvisPHP::$TTS_name;
         $JarvisTTS::speak($sentence);
     }
     

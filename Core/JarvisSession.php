@@ -44,6 +44,7 @@ class JarvisSession {
      * Ends the session
      */
     public static function terminate() {
+        session_unset('active_plugin');
         session_destroy();
     }
     

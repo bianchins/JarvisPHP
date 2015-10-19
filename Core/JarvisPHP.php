@@ -12,7 +12,9 @@ class JarvisPHP {
     private static $active_plugins = array();
     
     public static $slim = null;
-        
+    
+    public static $TTS_name = null;
+
     /**
      * Bootstrap JarvisPHP core
      */
@@ -46,7 +48,14 @@ class JarvisPHP {
                 
         //POST /answer route
         JarvisPHP::$slim->post('/answer/', function () {
-            JarvisPHP::elaborateCommand(JarvisPHP::$slim->request->post('command'));
+            //Detect if the request forces a TTS
+            if(!empty(JarvisPHP::$slim->request->post('tts')) && file_exists('Speakers\\'.JarvisPHP::$slim->request->post('tts').'.php')) {
+                $forcedTTS = JarvisPHP::$slim->request->post('tts');
+            } else {
+                $forcedTTS = _JARVIS_TTS;
+            }
+
+            JarvisPHP::elaborateCommand(mb_strtolower(JarvisPHP::$slim->request->post('command'), 'UTF-8'), $forcedTTS);
         });
 
         //Slim Framework Custom Error handler
@@ -85,8 +94,15 @@ class JarvisPHP {
      * Parse the command and execute the plugin
      * @param string $command
      */
-    public static function elaborateCommand($command) {
+    public static function elaborateCommand($command, $forcedTTS) {
                 
+        JarvisPHP::$TTS_name = $forcedTTS;
+
+        //Jarvis tries to understand if the magic words that stop the session were pronounced
+        if(preg_match(JarvisLanguage::translate('preg_match_magic_words_to_stop_session'),$command)) {
+            JarvisSession::terminate();
+        }
+
         //Verify if there is an active plugin and the command session timeout
         if(JarvisSession::sessionInProgress() && (time() < (JarvisSession::get('last_command_timestamp')+_COMMAND_SESSION_TIMEOUT))) {
             JarvisPHP::getLogger()->debug('Detected active session: '.JarvisSession::getActivePlugin() . ' - last command '.JarvisSession::get('last_command_timestamp').', now is '.time());
@@ -122,10 +138,17 @@ class JarvisPHP {
                 }
                 $choosen_plugin->answer($command);
             } else {
-                JarvisPHP::getLogger()->debug('No plugin found for command: '.$command);
-                JarvisTTS::speak(JarvisLanguage::translate('core_command_not_understand'));
-                $response = new \JarvisPHP\Core\JarvisResponse(JarvisLanguage::translate('core_command_not_understand'));
-                $response->send();
+                if(preg_match(JarvisLanguage::translate('preg_match_magic_words_to_stop_session'),$command)) {
+                    JarvisTTS::speak(JarvisLanguage::translate('response_to_magic_words_to_stop_session'));
+                    $response = new \JarvisPHP\Core\JarvisResponse(JarvisLanguage::translate('response_to_magic_words_to_stop_session'));
+                    $response->send();
+                }
+                else {
+                    JarvisPHP::getLogger()->debug('No plugin found for command: '.$command);
+                    JarvisTTS::speak(JarvisLanguage::translate('core_command_not_understand'));
+                    $response = new \JarvisPHP\Core\JarvisResponse(JarvisLanguage::translate('core_command_not_understand'));
+                    $response->send();
+                }
             }
         }
         //Update last command timestamp

@@ -13,6 +13,7 @@ JarvisPHP::loadPlugin('Info_plugin');
 JarvisPHP::loadPlugin('ActualOutsideTemperature_plugin');
 JarvisPHP::loadPlugin('InformationOn_plugin');
 JarvisPHP::loadPlugin('Hello_plugin');
+JarvisPHP::loadPlugin('Weather_plugin');
 
 //Initialize JarvisPHP
 JarvisPHP::bootstrap();

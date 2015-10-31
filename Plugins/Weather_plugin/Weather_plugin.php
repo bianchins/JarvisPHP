@@ -10,9 +10,6 @@ use JarvisPHP\Core\JarvisTTS;
 use Cmfcmf\OpenWeatherMap;
 use Cmfcmf\OpenWeatherMap\Exception as OWMException;
 
-//Create your own api key
-define('_OPENWEATHERMAP_API_KEY','<your-api-key>');
-
 /**
  * A Weather plugin for today / tomorrow forecast
  * @author Stefano Bianchini
@@ -38,8 +35,18 @@ class Weather_plugin implements \JarvisPHP\Core\JarvisPluginInterface{
         $tomorrow = new \DateTime();
         $tomorrow->modify('+1 day');
 
+        $_OPENWEATHERMAP_API_KEY = '';
+
+        //Load API key from json config
+        if(file_exists('Plugins/Weather_plugin/api-key.json')) {
+            //Create your own api key and put it in api-key.json
+            // like {"openweathermap_key": "<your-api-key>"}
+            $json_config = json_decode(file_get_contents('Plugins/Weather_plugin/api-key.json'));
+            $_OPENWEATHERMAP_API_KEY = $json_config->openweathermap_key;
+        }
+
         try {
-            $forecast = $owm->getWeatherForecast('Rimini', 'metric', 'it', _OPENWEATHERMAP_API_KEY,2);
+            $forecast = $owm->getWeatherForecast('Rimini', 'metric', _LANGUAGE, $_OPENWEATHERMAP_API_KEY,2);
         } catch(OWMException $e) {
             JarvisPHP::getLogger()->error('OpenWeatherMap exception: ' . $e->getMessage() . ' (Code ' . $e->getCode() . ').');
             $answer = JarvisLanguage::translate('weather_error',get_called_class());            

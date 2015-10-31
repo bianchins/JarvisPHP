@@ -14,6 +14,8 @@ JarvisPHP::loadPlugin('ActualOutsideTemperature_plugin');
 JarvisPHP::loadPlugin('InformationOn_plugin');
 JarvisPHP::loadPlugin('Hello_plugin');
 JarvisPHP::loadPlugin('Weather_plugin');
+JarvisPHP::loadPlugin('Movie_plugin');
+JarvisPHP::loadPlugin('Gcalendar_plugin');
 
 //Initialize JarvisPHP
 JarvisPHP::bootstrap();

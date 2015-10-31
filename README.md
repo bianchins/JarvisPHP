@@ -25,13 +25,14 @@ or play some music, query public weather api, read mails, connect to facebook an
 ##System's requirements
 *For core system*
 - Php 5.3 or newer
-- a web server (lighttpd recommended)
+- a web server (Php built-in webserver or lighttpd recommended)
 - Composer (https://getcomposer.org/)
 
 *For Text To Speech*
 It depends on which TTS you choose in configuration files. For example:
-- for Espeak tts plugin, `espeak` and `aplay` required
+- for Espeak tts plugin, `espeak` and `aplay` required (or in a windows system, espeak.exe and vlc.exe; you can change the executables in Espeak_plugin.php file)
 - for Say tts plugin, it works only on OSX
 - for Google TTS plugin, `aplay` required
+
 Of course you can edit a TTS plugins and replace aplay with your audio player. 
 Or you can write your own TTS, just place it in the `Speakers` folder

@@ -1,4 +1,4 @@
-JarvisPHP.log
+*.log
 nbproject/**
 vendor/**
 *.json
@@ -9,3 +9,4 @@ vendor/**
 .Trashes
 ehthumbs.db
 Thumbs.db
+*.cookie

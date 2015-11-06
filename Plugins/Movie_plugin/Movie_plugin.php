@@ -48,7 +48,7 @@ class Movie_plugin implements \JarvisPHP\Core\JarvisPluginInterface{
         $result = $client->getSearchApi()->searchMovies($movie_title, ['language'=>_LANGUAGE, 'page'=>1]);
 
         if(count($result['results'])>0) {
-            $answer = $result['results'][0]['overview'];
+            $answer = ($result['results'][0]['overview']) ? ($result['results'][0]['overview']) : JarvisLanguage::translate('no_results',get_called_class());
         } else {
             //No results
             $answer = JarvisLanguage::translate('no_results',get_called_class());

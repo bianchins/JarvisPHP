@@ -55,8 +55,7 @@ class JarvisPHP {
             } else {
                 $forcedTTS = _JARVIS_TTS;
             }
-
-            JarvisPHP::elaborateCommand(mb_strtolower(JarvisPHP::$slim->request->post('command'), 'UTF-8'), $forcedTTS);
+            JarvisPHP::elaborateCommand(mb_strtolower(preg_replace("/\s+/", " ", JarvisPHP::$slim->request->post('command')), 'UTF-8'), $forcedTTS);
         });
 
         //Slim Framework Custom Error handler
@@ -145,9 +144,17 @@ class JarvisPHP {
                     $response->send();
                 }
                 else {
-                    JarvisPHP::getLogger()->debug('No plugin found for command: '.$command);
-                    JarvisTTS::speak(JarvisLanguage::translate('core_command_not_understand'));
-                    $response = new \JarvisPHP\Core\JarvisResponse(JarvisLanguage::translate('core_command_not_understand'));
+                    JarvisBehaviourLanguage::loadJsonAil();
+                    $answer = JarvisBehaviourLanguage::answer($command);
+                    if($answer) {
+                        $response = new \JarvisPHP\Core\JarvisResponse($answer);
+                    } else {
+                        JarvisPHP::getLogger()->debug('No plugin found for command: '.$command);
+                        JarvisTTS::speak(JarvisLanguage::translate('core_command_not_understand'));
+                        //Log the command
+                        file_put_contents('notUnderstandCommands.log', '['.date('Y-m-d H:i:s').'] Command:'.$command. PHP_EOL , FILE_APPEND | LOCK_EX);
+                        $response = new \JarvisPHP\Core\JarvisResponse(JarvisLanguage::translate('core_command_not_understand'));
+                    }
                     $response->send();
                 }
             }

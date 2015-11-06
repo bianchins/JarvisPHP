@@ -16,6 +16,7 @@ JarvisPHP::loadPlugin('Hello_plugin');
 JarvisPHP::loadPlugin('Weather_plugin');
 JarvisPHP::loadPlugin('Movie_plugin');
 JarvisPHP::loadPlugin('Gcalendar_plugin');
+JarvisPHP::loadPlugin('Wemo_plugin');
 
 //Initialize JarvisPHP
 JarvisPHP::bootstrap();

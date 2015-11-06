@@ -25,7 +25,7 @@
 		},
 		{
 			"matches" : [
-						"/(fammi|puoi far(e|mi|ci)) \\w*.*(caff(e|é|è)|t(e|é|è)|frullato)/", 
+						"/(fammi|puoi far(e|mi|ci)) \\w*.*(caff(e|é|è)|t(e|é|è)|frullato)/",
 						"/ho voglia di \\w*.*(caff(e|é|è)|t(e|é|è)|frullato)/"
 						],
 			"responses" : [
@@ -52,6 +52,38 @@
 			"responses" : [
 						"Sicuramente un genio.",
 						"Lei, signore."
+						]
+		},
+		{
+			"matches" : [
+						"/cosa ne pensi/", 
+						"/qual(e) è il tuo parere/"
+						],
+			"responses" : [
+						"Qualsiasi cosa lei pensa è giusta, signore.",
+						"Difficile a dirsi. Ma appoggio il suo pensiero.",
+						"Ho un pensiero positivo a riguardo."
+						]
+		},
+		{
+			"matches" : [
+						"/(sono|siamo|eccoci|eccomi) (a|in) casa/"
+						],
+			"responses" : [
+						"Ne sono lieto, signore",
+						"Molto bene. Cominciavo a sentirmi solo.",
+						"La stavo aspettando, signore."
+						]
+		},
+		{
+			"matches" : [
+						"/(hai visto|c'è|ce|c e|c è).*((in|a) casa)*/",
+						"/.* è (in|a) casa/"
+						],
+			"responses" : [
+						"Non ho ancora i sensori di presenza, signore.",
+						"Consiglierei di usare la voce, signore. La casa non è grande.",
+						"Non ne ho la certezza, signore."
 						]
 		}
 	]

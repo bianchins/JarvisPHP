@@ -1,0 +1,58 @@
+{
+	"rules": [
+		{
+			"matches" : [
+						"/sono triste/", 
+						"/mi sento triste/", 
+						"/giù di morale/"
+						],
+			"responses" : [
+						"Posso tirarle su il morale. Le ricordo che lei mi ha creato, quindi è un genio.",
+						"Sorrida alla vita. La vita le risponderà."
+						]
+		},
+		{
+			"matches" : [
+						"/(sono|mi sento) stanc(o|a)/", 
+						"/(sono|mi sento) uno straccio/"
+						],
+			"responses" : [
+						"Posso consigliarle della musica rilassante?",
+						"Consiglierei un po' di yoga.",
+						"Provi a stendersi sul divano o sul letto.",
+						"In questi casi, la meditazione aiuta."
+						]
+		},
+		{
+			"matches" : [
+						"/(fammi|puoi far(e|mi|ci)) \\w*.*(caff(e|é|è)|t(e|é|è)|frullato)/", 
+						"/ho voglia di \\w*.*(caff(e|é|è)|t(e|é|è)|frullato)/"
+						],
+			"responses" : [
+						"Non riesco ancora a preparare del cibo. Ho bisogno di un aggiornamento.",
+						"Dovrei avere accesso alla cucina, signore.",
+						"Mi dispiace, signore. Non dovendo mangiare, non mi occupo di queste cose."
+						]
+		},
+		{
+			"matches" : [
+						"/stasera in (tv|televisione)/", 
+						"/consigliami (un film|cosa guardare)/"
+						],
+			"responses" : [
+						"Non saprei. Le consiglio di fare altro.",
+						"Meglio tenere spenta la televisione, signore."
+						]
+		},
+		{
+			"matches" : [
+						"/chi (è|é) il tuo creatore/", 
+						"/chi ti ha creato/"
+						],
+			"responses" : [
+						"Sicuramente un genio.",
+						"Lei, signore."
+						]
+		}
+	]
+}

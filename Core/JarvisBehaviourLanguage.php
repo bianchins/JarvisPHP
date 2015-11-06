@@ -11,9 +11,9 @@ class JarvisBehaviourLanguage {
 
 	public static $jbl_set = array();
 
-	public function loadJsonAil() {
-		if(file_exists('language/jbl_'._LANGUAGE.'.json')) {
-			JarvisBehaviourLanguage::$jbl_set = json_decode(file_get_contents('language/jbl_'._LANGUAGE.'.json'));
+	public function loadBehaviourLanguage() {
+		if(file_exists('language/jbl_'._LANGUAGE.'.jbl')) {
+			JarvisBehaviourLanguage::$jbl_set = json_decode(file_get_contents('language/jbl_'._LANGUAGE.'.jbl'));
 		}
 	}
 

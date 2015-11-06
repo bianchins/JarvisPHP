@@ -144,7 +144,7 @@ class JarvisPHP {
                     $response->send();
                 }
                 else {
-                    JarvisBehaviourLanguage::loadJsonAil();
+                    JarvisBehaviourLanguage::loadBehaviourLanguage();
                     $answer = JarvisBehaviourLanguage::answer($command);
                     if($answer) {
                         $response = new \JarvisPHP\Core\JarvisResponse($answer);

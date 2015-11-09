@@ -8,7 +8,7 @@ require 'vendor/autoload.php';
 require 'Core/JarvisPHP.php';
 
 //Define JarvisPHP Root Path
-define(_JARVISPHP_ROOT_PATH, dirname(__FILE__));
+define('_JARVISPHP_ROOT_PATH', dirname(__FILE__));
 
 //Load plugins
 JarvisPHP::loadPlugin('Echo_plugin');

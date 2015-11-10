@@ -6,3 +6,4 @@ $_lang['preg_match_read'] = '/(leggimeli|leggimele|leggi mail|leggi email)/';
 $_lang['you_have_new_messages'] = 'Ho trovato %s nuovi messaggi.';
 $_lang['from'] = 'Da';
 $_lang['subject'] = 'Oggetto';
+$_lang['no_messages'] = 'Nessun nuovo messaggio, signore.';

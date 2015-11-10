@@ -10,7 +10,7 @@ You have to:
 - Obtain a Bot Token from the @BotFather
 - Set the Bot Token in a file called api-key.json with this structure:
   {"bot_token" : "<Your-Bot-Token>"}
-- Add your ID in allowedClientIdList.php (yes, your bot will be private, only allowed from these ID!)
+- Add your ID in allowedClientIdList.json (yes, your bot will be private, only allowed from these ID!)
 
 And finally, from the root of JarvisPHP project folder, execute:
 php JarvisPHPBot.php

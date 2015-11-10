@@ -21,6 +21,7 @@ JarvisPHP::loadPlugin('Movie_plugin');
 JarvisPHP::loadPlugin('Gcalendar_plugin');
 JarvisPHP::loadPlugin('Wemo_plugin');
 JarvisPHP::loadPlugin('RaspPIVolume_plugin');
+JarvisPHP::loadPlugin('CheckMail_plugin');
 
 //Initialize JarvisPHP
 JarvisPHP::bootstrap();

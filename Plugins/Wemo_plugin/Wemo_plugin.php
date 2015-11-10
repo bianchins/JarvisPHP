@@ -33,7 +33,6 @@ class Wemo_plugin implements \JarvisPHP\Core\JarvisPluginInterface{
         //Load API key from json config
         if(file_exists('Plugins/Wemo_plugin/api-key.json')) {
             //Create your own api key and put it in api-key.json
-            // like {"ifttt_key": "<your-api-key>", "ifttt_event" : "<your-event-name>"}
             $json_config = json_decode(file_get_contents('Plugins/Wemo_plugin/api-key.json'));
             $_IFTTT_MAKER_KEY = $json_config->ifttt_key;
             $_IFTTT_MAKER_EVENT = $json_config->ifttt_event;

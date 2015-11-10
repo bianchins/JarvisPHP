@@ -37,7 +37,6 @@ class Movie_plugin implements \JarvisPHP\Core\JarvisPluginInterface{
         //Load API key from json config
         if(file_exists('Plugins/Movie_plugin/api-key.json')) {
             //Create your own api key and put it in api-key.json
-            // like {"themoviedb_key": "<your-api-key>"}
             $json_config = json_decode(file_get_contents('Plugins/Movie_plugin/api-key.json'));
             $_THEMOVIEDB_API_KEY = $json_config->themoviedb_key;
         }

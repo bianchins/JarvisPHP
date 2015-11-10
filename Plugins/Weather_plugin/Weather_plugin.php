@@ -40,7 +40,6 @@ class Weather_plugin implements \JarvisPHP\Core\JarvisPluginInterface{
         //Load API key from json config
         if(file_exists('Plugins/Weather_plugin/api-key.json')) {
             //Create your own api key and put it in api-key.json
-            // like {"openweathermap_key": "<your-api-key>"}
             $json_config = json_decode(file_get_contents('Plugins/Weather_plugin/api-key.json'));
             $_OPENWEATHERMAP_API_KEY = $json_config->openweathermap_key;
         }

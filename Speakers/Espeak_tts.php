@@ -14,7 +14,7 @@ require 'config/Espeak_config.php';
 class Espeak_tts {
     
     public static function speak($sentence) {
-        @exec('/usr/bin/espeak -w out.wav -v'._ESPEAK_LANGUAGE.'+'._ESPEAK_VOICE.' "'.$sentence.'" && vlc.exe --intf dummy --play-and-exit out.wav && rm out.wav');
+        @exec('/usr/bin/espeak -w out.wav -v'._ESPEAK_LANGUAGE.'+'._ESPEAK_VOICE.' "'.$sentence.'" && aplay out.wav && rm out.wav');
     }
     
 }

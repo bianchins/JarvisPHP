@@ -148,6 +148,7 @@ class JarvisPHP {
                     $answer = JarvisBehaviourLanguage::answer($command);
                     if($answer) {
                         $response = new \JarvisPHP\Core\JarvisResponse($answer);
+                        JarvisTTS::speak($answer);
                     } else {
                         JarvisPHP::getLogger()->debug('No plugin found for command: '.$command);
                         JarvisTTS::speak(JarvisLanguage::translate('core_command_not_understand'));

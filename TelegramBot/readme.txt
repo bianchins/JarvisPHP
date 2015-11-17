@@ -1,10 +1,11 @@
 How to use JarvisPHP TelegramBot
 --------------------------------
 
-JarvisPHP TelegramBot is a Telegram Bot that interact with JarvisPHP.
+JarvisPHP TelegramBot is a Telegram Bot that interact with JarvisPHP. 
+Please refer to wiki for more information.
 
 You have to:
-- set the right jarvisPhp Url in JarvisPHP, in line:
+- set the right jarvisPhp Url in TelegramBot/JarvisPHPTelegramBot, in line:
   define('_JARVISPHP_URL','http://localhost:8000/answer');
 - Create a Bot in Telegram, please refer to https://core.telegram.org/bots
 - Obtain a Bot Token from the @BotFather

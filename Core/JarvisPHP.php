@@ -58,6 +58,11 @@ class JarvisPHP {
             JarvisPHP::elaborateCommand(mb_strtolower(preg_replace("/\s+/", " ", JarvisPHP::$slim->request->post('command')), 'UTF-8'), $forcedTTS);
         });
 
+        //POST /answer route
+        JarvisPHP::$slim->post('/say/', function () {         
+            JarvisPHP::say(mb_strtolower(preg_replace("/\s+/", " ", JarvisPHP::$slim->request->post('sentence')), 'UTF-8'));
+        });
+
         //Slim Framework Custom Error handler
         JarvisPHP::$slim->error(function (\Exception $e) {
             JarvisPHP::getLogger()->error('Code: '.$e->getCode().' - '.$e->getMessage().' in '.$e->getFile().' on line '.$e->getLine().'');
@@ -147,7 +152,7 @@ class JarvisPHP {
                     JarvisBehaviourLanguage::loadBehaviourLanguage();
                     $answer = JarvisBehaviourLanguage::answer($command);
                     if($answer) {
-                        $response = new \JarvisPHP\Core\JarvisResponse($answer);
+                        $response = new \JarvisPHP\Core\JarvisResponse($answer, 'none', true);
                         JarvisTTS::speak($answer);
                     } else {
                         JarvisPHP::getLogger()->debug('No plugin found for command: '.$command);
@@ -164,6 +169,17 @@ class JarvisPHP {
         JarvisSession::set('last_command_timestamp', time());
     }
     
+    /**
+     * Say the sentence
+     * @param string $sentence
+     */
+    public static function say($sentence) {
+        JarvisPHP::$TTS_name = _JARVIS_TTS;
+        $response = new \JarvisPHP\Core\JarvisResponse($sentence, 'none', true);
+        JarvisTTS::speak($sentence);
+        $response->send();
+    }
+
     public static function getRealClassName($fullClassName) {
         //Explode class name
         $classNameArray = explode('\\',$fullClassName);

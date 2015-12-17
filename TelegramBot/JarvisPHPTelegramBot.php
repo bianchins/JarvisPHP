@@ -5,7 +5,7 @@ use JarvisPHP\TelegramBot\TelegramBotApiWrapper;
 use JarvisPHP\TelegramBot\GenericCurl;
 
 //Very important!
-define('_JARVISPHP_URL','http://localhost:8000/answer');
+define('_JARVISPHP_URL','http://localhost:8000');
 
 /**
  * A TelegramBot for JarvisPHP
@@ -54,7 +54,22 @@ class JarvisPHPTelegramBot {
 								case '/register': 
 												$response='Ok, i registered your ID in registerIdLog.log'; 
 												file_put_contents('TelegramBot/registerIdLog.log', '['.date('Y-m-d H:i:s').'] ID:'.$update->message->from->id . '; FIRSTNAME:'. $update->message->from->first_name . '; LASTNAME:'. $update->message->from->last_name. '; USERNAME:'. $update->message->from->username.PHP_EOL , FILE_APPEND | LOCK_EX);
-												break;
+												break;	
+								case '/say': $response='Use /say "sentence" (without quotes) to make JarvisPHP speak a sentence.'; break;	
+							}
+
+							//"Say" Telegram command
+							if(preg_match('$^/say (.+)$', $message, $matches)) {
+								if($matches) {
+									if(in_array($update->message->chat->id, $allowedClientIdList)) {
+										//Redirect message to JarvisPhp
+										$JarvisResponse = GenericCurl::exec(_JARVISPHP_URL.'/answer', array('sentence'=>$matches[0]));
+
+										$response = $JarvisResponse->answer;
+									} else {
+										$response = 'You are not allowed to speak with me.';
+									}
+								}
 							}
 
 							//Encode emoji
@@ -65,7 +80,7 @@ class JarvisPHPTelegramBot {
 						} else {
 							if(in_array($update->message->chat->id, $allowedClientIdList)) {
 								//Redirect message to JarvisPhp
-								$JarvisResponse = GenericCurl::exec(_JARVISPHP_URL, array('command'=>$message, 'tts' => 'None_tts'));
+								$JarvisResponse = GenericCurl::exec(_JARVISPHP_URL.'/answer', array('command'=>$message, 'tts' => 'None_tts'));
 
 								$response = $JarvisResponse->answer;
 							} else {

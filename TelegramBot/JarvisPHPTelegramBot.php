@@ -63,7 +63,7 @@ class JarvisPHPTelegramBot {
 								if($matches) {
 									if(in_array($update->message->chat->id, $allowedClientIdList)) {
 										//Redirect message to JarvisPhp
-										$JarvisResponse = GenericCurl::exec(_JARVISPHP_URL.'/answer', array('sentence'=>$matches[0]));
+										$JarvisResponse = GenericCurl::exec(_JARVISPHP_URL.'/say', array('sentence'=>$matches[1]));
 
 										$response = $JarvisResponse->answer;
 									} else {
